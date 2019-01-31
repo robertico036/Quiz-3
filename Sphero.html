@@ -1,0 +1,60 @@
+async function startProgram() {
+	await roll(0, 65, 2);
+	await roll(0, 0, 2);//wait
+	await roll(90, 30, 2);
+	await roll(90, 0, 2);//wait
+	await roll(0, 30, 2);
+	await roll(0, 0, 2);//wait
+	await roll(90, 36, 3);
+	await roll(135, 21, 3);
+	setMainLed({ r: 255, g: 0, b: 0})
+	await roll(45, 25, 3);
+	setMainLed({ r: 0, g: 255, b: 0})
+	await roll(135, 20, 3);
+	setMainLed({ r: 0, g: 0, b: 255})
+	await roll(45, 30, 3);
+	await roll(90, 41, 3);
+	
+	await roll(90, 0, 3);//wait
+	
+	var random =Math.random();
+	if(random<0.5){
+	await roll(0, 25, 3);
+	await roll(90, 25, 3);
+	await roll(180, 25, 3);
+	}
+	else if(random=>0.5){
+	await roll(180, 25, 3);
+	await roll(90, 25, 3);
+	await roll(0, 25, 3);
+	}
+	await roll(90, 28, 3);
+	//giro izquierda movimiento de loop continuara
+	await roll(0, 28, 3);
+
+	//loop
+	
+	
+	for (var i=0; i<3; i++) {
+		if(i !== 2) {
+			await Sound.play(true);
+		}	
+			await roll(90, 24, 3);
+			await roll(90, 0, 3);//wait
+			await roll(180, 45, 3);
+			await roll(90, 0, 3);//wait
+			await roll(90, 24, 3);
+			await roll(90, 0, 3);//wait
+			await roll(0, 45, 3);
+			await roll(0, 0, 3);//wait	
+		
+		
+	}
+	//last movements
+	await roll(135, 20, 3);
+	await roll(90, 0, 3);//wait
+	await roll(45, 30, 3);
+	await roll(90, 0, 2);
+	await roll(90, 25, 2);
+
+}
